@@ -6,8 +6,7 @@ const noBtn = document.querySelector(".no-btn");
 
 yesBtn.addEventListener("click", () => {
   question.innerHTML = "Tân cũng iu cậu nhìu lắmmm  (⁠⁠ﾉ⁠ω⁠＼⁠)♥️";
-  gif.src =
-    "https://media.giphy.com/media/UMon0fuimoAN9ueUNP/giphy.gif";
+  gif.src = "https://media.giphy.com/media/UMon0fuimoAN9ueUNP/giphy.gif";
 });
 
 noBtn.addEventListener("mouseover", () => {
@@ -15,9 +14,15 @@ noBtn.addEventListener("mouseover", () => {
   const maxX = window.innerWidth - noBtnRect.width;
   const maxY = window.innerHeight - noBtnRect.height;
 
-  const randomX = Math.floor(Math.random() * maxX);
-  const randomY = Math.floor(Math.random() * maxY);
+  let randomX = Math.floor(Math.random() * maxX);
+  let randomY = Math.floor(Math.random() * maxY);
 
+  if (randomX < 0) randomX = 0;
+  if (randomY < 0) randomY = 0;
+  if (randomX > maxX) randomX = maxX;
+  if (randomY > maxY) randomY = maxY;
+
+  noBtn.style.position = "absolute";
   noBtn.style.left = randomX + "px";
   noBtn.style.top = randomY + "px";
 });
